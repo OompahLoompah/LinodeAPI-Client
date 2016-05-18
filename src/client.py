@@ -27,3 +27,8 @@ class linodeClient:
 
     def destroyLinode(self, linode):
         request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.delete&LinodeID=' + linode)
+
+    def createFromDistro(self,linode, distro, label, size, rootPass):
+        request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.disk.createfromdistribution&&LinodeID=' + linode + '&DistributionID=' + distro + '&Label=' + label + '&Size=' + size + '&rootPass=' + rootPass)
+        swapRequest = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.disk.create&&LinodeID=' + linode + '&Label=swap&Type=swap&Size=512')
+        return request
