@@ -19,3 +19,20 @@ if userInput == 'cfd':
     size = raw_input("Size (MB): ")
     password = raw_input("Password: ")
     print(linode.createFromDistro(linodeID, distro, label, size, password))
+    linode.createDisk(linodeID, 'swap', '512', 'swap')
+    linode.createConfig(linodeID, label, [label,'swap'])
+
+if userInput == 'config':
+    linodeID = raw_input("LinodeID: ")
+    label = raw_input("Label: ")
+
+    disks = []
+    disk = raw_input("Enter disk ID")
+    while disk != '':
+        disks.append(disk)
+        disk = raw_input("Enter disk ID: ")
+    print(linode.createConfig(linodeID, label, disks))
+
+if userInput == 'boot':
+    vps = raw_input("Which Linode? ")
+    print(linode.boot(vps))
