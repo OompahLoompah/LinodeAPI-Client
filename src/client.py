@@ -50,3 +50,11 @@ class linodeClient:
     def boot(self, linode):
         request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.boot&LinodeID=' + linode)
         return request
+
+    def reboot(self, linode):
+        request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.reboot&LinodeID=' + linode)
+        return request
+
+    def shutdown(self, linode):
+        request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.shutdown&LinodeID=' + linode)
+        return request

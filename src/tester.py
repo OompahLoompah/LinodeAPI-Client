@@ -36,3 +36,11 @@ if userInput == 'config':
 if userInput == 'boot':
     vps = raw_input("Which Linode? ")
     print(linode.boot(vps))
+
+if userInput == 'reboot':
+    vps = raw_input("Which Linode? ")
+    print(linode.reboot(vps))
+
+if userInput == 'shutdown':
+    vps = raw_input("Which Linode? ")
+    print(linode.shutdown(vps))
