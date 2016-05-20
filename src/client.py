@@ -1,7 +1,7 @@
 from urllib2 import Request, urlopen, URLError
 import yaml
 import os
-
+import json
 
 class linodeClient:
 
@@ -57,4 +57,13 @@ class linodeClient:
 
     def shutdown(self, linode):
         request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.shutdown&LinodeID=' + linode)
+        return request
+
+    def listDisks(self, linode):
+        request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.disk.list&LinodeID=' + linode)
+        dump = json.loads(request)
+        return dump
+
+    def deleteDisk(self, linode, diskid):
+        request = self.call('https://api.linode.com/?api_key=' + self.key + '&api_action=linode.disk.delete&LinodeID=' + linode + '&DiskID=' + diskid)
         return request

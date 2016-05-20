@@ -1,5 +1,6 @@
 from client import linodeClient
 import os
+import json
 
 linode = linodeClient(os.getcwd() + '/../.config')
 
@@ -10,7 +11,10 @@ if userInput == 'create':
 
 if userInput == 'destroy':
     userInput = raw_input("What do you want to destroy?\n")
-    linode.destroyLinode(userInput)
+    response = linode.listDisks(userInput)
+    for disk in response['DATA']:
+        linode.deleteDisk(userInput, str(disk['DISKID']))
+    print(linode.destroyLinode(userInput))
 
 if userInput == 'cfd':
     linodeID = raw_input("LinodeID: ")
@@ -44,3 +48,10 @@ if userInput == 'reboot':
 if userInput == 'shutdown':
     vps = raw_input("Which Linode? ")
     print(linode.shutdown(vps))
+
+if userInput == 'list disks':
+    vps = raw_input("Which Linode? ")
+    response = linode.listDisks(vps)
+    print(response['ERRORARRAY'])
+    for disk in response['DATA']:
+        print disk['DISKID']
