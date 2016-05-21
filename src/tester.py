@@ -7,7 +7,7 @@ linode = linodeClient(os.getcwd() + '/../.config')
 userInput = raw_input("What do you want to do?\n")
 
 if userInput == 'create':
-    linode.createLinode('3', '1')
+    print(linode.createLinode('3', '1'))
 
 if userInput == 'destroy':
     userInput = raw_input("What do you want to destroy?\n")
@@ -31,7 +31,7 @@ if userInput == 'config':
     label = raw_input("Label: ")
 
     disks = []
-    disk = raw_input("Enter disk ID")
+    disk = raw_input("Enter disk ID: ")
     while disk != '':
         disks.append(disk)
         disk = raw_input("Enter disk ID: ")
