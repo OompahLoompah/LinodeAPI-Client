@@ -83,25 +83,31 @@ class linodeClient:
 
     def reboot(self, linode):
         request = self.call('https://api.linode.com/?api_key=' + self.key +
-        '&api_action=linode.reboot&LinodeID=' + linode)
+                  '&api_action=linode.reboot&LinodeID=' + linode)
         dump = json.loads(request)
         return dump
 
     def shutdown(self, linode):
         request = self.call('https://api.linode.com/?api_key=' + self.key +
-        '&api_action=linode.shutdown&LinodeID=' + linode)
+                  '&api_action=linode.shutdown&LinodeID=' + linode)
         dump = json.loads(request)
         return dump
 
     def listDisks(self, linode):
         request = self.call('https://api.linode.com/?api_key=' + self.key +
-        '&api_action=linode.disk.list&LinodeID=' + linode)
+                  '&api_action=linode.disk.list&LinodeID=' + linode)
         dump = json.loads(request)
         return dump
 
     def deleteDisk(self, linode, diskid):
         request = self.call('https://api.linode.com/?api_key=' + self.key +
-        '&api_action=linode.disk.delete&LinodeID=' + linode + '&DiskID=' +
+                  '&api_action=linode.disk.delete&LinodeID=' + linode + '&DiskID=' +
         diskid)
+        dump = json.loads(request)
+        return dump
+
+    def listIPs(self, linode):
+        request = self.call('https://api.linode.com/?api_key=' + self.key +
+                  '&api_action=linode.ip.list&LinodeID=' + linode)
         dump = json.loads(request)
         return dump

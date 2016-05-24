@@ -1,6 +1,5 @@
 from client import linodeClient
 import os
-import json
 
 linode = linodeClient(os.getcwd() + '/../.config')
 
@@ -55,3 +54,8 @@ if userInput == 'list disks':
     print(response['ERRORARRAY'])
     for disk in response['DATA']:
         print disk['DISKID']
+
+if userInput == 'list IPs':
+    vps = raw_input("Which Linode? ")
+    response = linode.listIPs(vps)
+    print response
