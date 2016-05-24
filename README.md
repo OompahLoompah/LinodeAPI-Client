@@ -1,4 +1,2 @@
 # LinodeAPI-Client
-What it says on the tin. Real imaginative name, huh?
-
-LinodeAPI-Client is a python library meant for personal projects requiring automated interaction with Linode VPSes. It's mostly built as a learning tool and is almost guaranteed to be incomplete as only calls that I need are implemented. Seriously, programming API calls gets tedious after the tenth near identical call.
+LinodeAPI-Client is a python library meant for personal projects requiring automated interaction with Linode VPSes. It's mostly built as a learning tool and is almost guaranteed to be incomplete as only calls that I need are implemented. If you're looking for a finished product I would recommend [tjfontaine/linode-python](https://github.com/tjfontaine/linode-python/blob/master/linode/api.py) for Python.
